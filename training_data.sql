@@ -1,6 +1,6 @@
 WITH params AS (
     SELECT
-    1 AS TRAIN, # define TRAIN variable to build an independent EVAL set
+    1 AS TRAIN, -- define TRAIN variable to build an independent EVAL set
     2 AS EVAL
     ),
 
