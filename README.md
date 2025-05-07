@@ -55,7 +55,7 @@ WITH params AS (
   FROM taxitrips
 ```
 
-![ss 3](https://github.com/larisanti/taxi-forecasting-ml/blob/main/Screenshots/3.png)
+![ss 3](Screenshots/3.png)
 
 *(query in: [`taxifare_model.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/taxifare_model.sql))*
 
@@ -101,7 +101,7 @@ FROM
   ))
 ```
 
-![ss 4](https://github.com/larisanti/taxi-forecasting-ml/blob/main/Screenshots/4.png)
+![ss 4](Screenshots/4.png)
 
 *(query in: [`evaluate_taxifare_model.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/evaluate_taxifare_model.sql))*
 
@@ -169,7 +169,7 @@ WHERE trip_distance > 0 AND fare_amount BETWEEN 6 and 200
   ))
 ```
 
-![ss 7](https://github.com/larisanti/taxi-forecasting-ml/blob/main/Screenshots/7.png)
+![ss 7](Screenshots/7.png)
 
 The RMSE decreased from approximately +-9.47 to +-5.12, indicating a significant gain in accuracy. Since the RMSE quantifies the typical magnitude of prediction errors, this reduction demonstrates that the retrained linear regression model is considerably more precise.
 
