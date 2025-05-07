@@ -1,4 +1,6 @@
 # Taxi Fare Forecasting using BigQuery ML
+[![BigQuery](https://img.shields.io/badge/BigQuery-blue?logo=google-cloud-platform&logoColor=white)](https://cloud.google.com/bigquery)
+[![ML](https://img.shields.io/badge/ML-orange?logo=google-cloud&logoColor=white)](https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax)
 
 This project is a lab exercise completed during the Machine Learning Engineer Learning Path course. It demonstrates how to use BigQuery ML to construct and assess a linear regression model for predicting taxi fares in New York City.
 
