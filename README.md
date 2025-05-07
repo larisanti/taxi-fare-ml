@@ -55,7 +55,7 @@ WITH params AS (
   FROM taxitrips
 ```
 
-![ss 3](https://github.com/larisanti/taxi-forecasting-ml/blob/main/Screenshots/3.png)
+
 
 *(query in: [`taxifare_model.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/taxifare_model.sql))*
 
