@@ -7,13 +7,13 @@ The project utilizes the `bigquery-public-data.new_york.tlc_yellow_trips_2015` d
 ## Workflow
 
 ### 1.  **Explore the dataset: Calculate the number of trips**
-Run the query `sql here` to calculate the number of trips Yellow taxis took each month in 2015 from the NYC Yellow taxi trip dataset. The query groups the data by month and presents the results in chronological order.
+Run the query [`trips_per_month.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/trips_per_month.sql) to calculate the number of trips Yellow taxis took each month in 2015 from the NYC Yellow taxi trip dataset. The query groups the data by month and presents the results in chronological order.
 
 ### 2.  **Explore the dataset: Calculate the average speed**
-Run the query `sql here` to calculate the average speed of Yellow taxi trips for each hour of the day in 2015, considering only trips with valid distance, fare-to-distance ratios, and pickup/dropoff times.
+Run the query [`speed_per_hour.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/speed_per_hour.sql) to calculate the average speed of Yellow taxi trips for each hour of the day in 2015, considering only trips with valid distance, fare-to-distance ratios, and pickup/dropoff times.
 
 ### 3.  **Prepare the training data**
-This step (query `sql here`) prepares the training data for a taxi fare prediction model. It selects relevant features, performs feature engineering (calculating `total_fare`, extracting day of the week and hour of the day), filters out invalid data, and splits the data into training and evaluation sets using hashing.
+This step (query: [`training_data.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/training_data.sql)) prepares the training data for a taxi fare prediction model. It selects relevant features, performs feature engineering (calculating `total_fare`, extracting day of the week and hour of the day), filters out invalid data, and splits the data into training and evaluation sets using hashing.
 
 
 ### 4.  **Create and train the taxifare_model**
@@ -55,6 +55,7 @@ WITH params AS (
 
 ![ss 3]()
 
+*(query in: [`taxifare_model.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/taxifare_model.sql))*
 
 ### 5.  **Evaluate the model using ML.EVALUATE**
    
@@ -99,9 +100,10 @@ FROM
 
 ![ss 4]()
 
+*(query in: [`evaluate_taxifare_model.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/evaluate_taxifare_model.sql))*
 
 ### 6.  **Predict taxi fares**
-In this step (query `sql here`), the taxi.taxifare_model is used to predict taxi fare amounts. The query applies the model to a subset of the `nyc-tlc.yellow.trips` dataset, generating predictions based on trip features such as pickup/dropoff locations, time of day, and passenger count.
+In this step (query [`predict_taxi_fare.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/predict_taxi_fare.sql)), the taxi.taxifare_model is used to predict taxi fare amounts. The query applies the model to a subset of the `nyc-tlc.yellow.trips` dataset, generating predictions based on trip features such as pickup/dropoff locations, time of day, and passenger count.
 
 
 ### 7.  **Improve the model with Feature Engineering**
@@ -109,11 +111,11 @@ This step focuses on improving the taxi fare prediction model by using feature e
 * 7.1. Explore initial fare statistics to understand the overall fare distribution
 * 7.2. Filter out-of-range fares to avoid learning on outliers
 * 7.3. Limit to NYC geographic coordinates to ensure that the model is trained on trips that are relevant to the target area
- *(complete sequency of queries here: `sql here`)*
+ *(complete sequency of queries here: [`feature_engineering.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/feature_engineering.sql))*
 
 
 ### 8.  **Retrain the model / create taxi.taxifare_model_2**
-Next, this query `sql here` helps to improve the accuracy of the taxi fare prediction model by incorporating new features, filtering out irrelevant data, and retraining the model using a refined dataset.
+Next, this query [`taxifare_model_2.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/taxifare_model_2.sql) helps to improve the accuracy of the taxi fare prediction model by incorporating new features, filtering out irrelevant data, and retraining the model using a refined dataset.
 
 
 ### 9.  **Evaluate taxifare_model_2**
@@ -164,3 +166,5 @@ WHERE trip_distance > 0 AND fare_amount BETWEEN 6 and 200
 ```
 
 ![ss 7]()
+
+*(query in: [`evaluate_taxifare_model_2.sql`](https://github.com/larisanti/taxi-forecasting-ml/blob/main/evaluate_taxifare_model_2.sql))*
